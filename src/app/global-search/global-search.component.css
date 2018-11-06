@@ -1,0 +1,8 @@
+.example-full-width {
+    width: 40%;
+    margin: 25% 30%;
+  }
+
+.matInput {
+    border-bottom: 1px grey;
+}
