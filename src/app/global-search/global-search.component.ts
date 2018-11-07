@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import { STOCKS } from '../mock-data/stocks';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-global-search',
@@ -11,13 +11,16 @@ import { STOCKS } from '../mock-data/stocks';
   styleUrls: ['./global-search.component.css']
 })
 export class GlobalSearchComponent implements OnInit {
+  @ViewChild('searchDiv') searchDiv:ElementRef;
+  @ViewChild('titleHeader') titleHeader:ElementRef;
+  @ViewChild('searchFormField') searchFormField:ElementRef;
 
   stateCtrl = new FormControl();
   filteredStates: Observable<String[]>;
 
   stocks: String[] = STOCKS
 
-  constructor() {
+  constructor(private router: Router) {
     this.filteredStates = this.stateCtrl.valueChanges
       .pipe(
         startWith(''),
@@ -31,5 +34,16 @@ export class GlobalSearchComponent implements OnInit {
   }  
   
   ngOnInit() {
+  }
+
+  getSecInfo(){
+    this.transitionSearchElements()
+  }
+
+  transitionSearchElements(){
+    this.searchDiv.nativeElement.className = 'transitioned-search-div' 
+    this.titleHeader.nativeElement.className = 'transitioned-title-header'
+    //this.searchFormField.nativeElement.className = 'transitioned-search-formfield'
+    this.router.navigateByUrl('/stockInfo');
   }
 }

@@ -11,11 +11,13 @@ import {
   MatInputModule,
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StockInfoComponent } from './stock-info/stock-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GlobalSearchComponent
+    GlobalSearchComponent,
+    StockInfoComponent
   ],
   imports: [
     BrowserModule,
