@@ -9,15 +9,21 @@ import {
   MatButtonModule,
   MatFormFieldModule,
   MatInputModule,
+  MatTabsModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StockInfoComponent } from './stock-info/stock-info.component';
+import { StockNewsComponent } from './stock-news/stock-news.component';
+import { PlayStockComponent } from './play-stock/play-stock.component';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     GlobalSearchComponent,
-    StockInfoComponent
+    StockInfoComponent,
+    StockNewsComponent,
+    PlayStockComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +34,8 @@ import { StockInfoComponent } from './stock-info/stock-info.component';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    MatTabsModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

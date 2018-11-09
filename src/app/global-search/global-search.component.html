@@ -9,6 +9,16 @@
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
-</div>  
+</div>
+
+<nav mat-tab-nav-bar *ngIf='navTabDisp' class="stock-tabs">
+  <a mat-tab-link 
+    *ngFor="let link of navLinks; let i = index"
+    [routerLink]="link.link"
+    [active]="activeLinkIndex === i"
+    (click)="activeLinkIndex = i">
+    {{link.label}}
+  </a> 
+</nav>
 
 <router-outlet></router-outlet>
