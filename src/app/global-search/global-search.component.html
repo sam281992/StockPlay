@@ -1,10 +1,10 @@
 <div class="global-search-div" #searchDiv>
   <div class="main-header" #titleHeader>StockLearn</div>
-  <mat-form-field class="example-full-width" #searchFormField>
+  <mat-form-field class="search-full-width" #searchFormField>
       <input matInput placeholder="Stocks" [matAutocomplete]="auto" [formControl]="stateCtrl">
     <mat-autocomplete #auto="matAutocomplete">
       <mat-option *ngFor="let stock of filteredStates | async" [value]="stock" 
-      (enter)="getSecInfo()" (click)="getSecInfo()">
+      (enter)="getSecInfo()" (click)="searchResults()">
         <span>{{stock}}</span>
       </mat-option>
     </mat-autocomplete>

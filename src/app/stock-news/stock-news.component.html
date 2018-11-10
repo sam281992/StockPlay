@@ -1,3 +1,15 @@
-<p>
-  stock-news works!
-</p>
+<div *ngIf="news" class="stock-news-main-div">
+  <mat-card class="stock-news-card" *ngFor="let article of news.articles">
+    <mat-card-header class="stock-news-header">
+      <div mat-card-avatar>
+          <img mat-card-image src={{article.urlToImage}} alt="X" class="stock-news-thumbnail">
+      </div>
+      <mat-card-title class="stock-news-title"><a href={{article.url}} target="_blank">{{article.title}}</a></mat-card-title>
+      <mat-card-subtitle class="stock-news-subtitle">{{article.author}}</mat-card-subtitle> 
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

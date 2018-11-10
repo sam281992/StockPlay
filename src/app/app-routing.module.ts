@@ -4,12 +4,14 @@ import { GlobalSearchComponent } from './global-search/global-search.component';
 import { StockInfoComponent } from './stock-info/stock-info.component';
 import { PlayStockComponent } from './play-stock/play-stock.component';
 import { StockNewsComponent } from './stock-news/stock-news.component';
+import { StockChartInfoComponent } from './stock-chart-info/stock-chart-info.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'search', pathMatch:'full'},
     { path: 'search',  component: GlobalSearchComponent,
       children: [
         { path: 'stock-info', component: StockInfoComponent},
+        { path: 'stock-chart', component: StockChartInfoComponent},
         { path: 'stock-news', component: StockNewsComponent},
         { path: 'play-stock', component: PlayStockComponent}
     ]

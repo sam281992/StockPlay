@@ -16,6 +16,8 @@ import { StockInfoComponent } from './stock-info/stock-info.component';
 import { StockNewsComponent } from './stock-news/stock-news.component';
 import { PlayStockComponent } from './play-stock/play-stock.component';
 import { HttpModule } from '@angular/http';
+import { StockChartInfoComponent } from './stock-chart-info/stock-chart-info.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { HttpModule } from '@angular/http';
     GlobalSearchComponent,
     StockInfoComponent,
     StockNewsComponent,
-    PlayStockComponent
+    PlayStockComponent,
+    StockChartInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,8 @@ import { HttpModule } from '@angular/http';
     MatFormFieldModule,
     MatInputModule,
     MatTabsModule,
-    HttpModule
+    HttpModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

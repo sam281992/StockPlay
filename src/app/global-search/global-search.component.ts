@@ -4,18 +4,17 @@ import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import { STOCKS } from '../mock-data/stocks';
 import { Router } from '@angular/router';
-import { StockInfoService } from '../stock-info/services/stock-info.service';
+import { MatFormField } from '@angular/material';
 
 @Component({
   selector: 'app-global-search',
   templateUrl: './global-search.component.html',
   styleUrls: ['./global-search.component.css'],
-  providers: [StockInfoService]
 })
 export class GlobalSearchComponent implements OnInit {
   @ViewChild('searchDiv') searchDiv:ElementRef;
   @ViewChild('titleHeader') titleHeader:ElementRef;
-  @ViewChild('searchFormField') searchFormField:ElementRef;
+  @ViewChild('searchFormField') searchFormField:MatFormField;
 
   activeLinkIndex = 0;
   stateCtrl = new FormControl();
@@ -24,7 +23,7 @@ export class GlobalSearchComponent implements OnInit {
   navTabDisp: boolean
   stocks: String[] = STOCKS
 
-  constructor(private router: Router, private stockinfoservice: StockInfoService) {
+  constructor(private router: Router) {
     this.filteredStates = this.stateCtrl.valueChanges
       .pipe(
         startWith(''),
@@ -41,42 +40,20 @@ export class GlobalSearchComponent implements OnInit {
     this.navTabDisp = false;
     this.navLinks = [
       { label: 'Stocks Math', link: './stock-info'},
+      { label: 'Stock Chart', link: './stock-chart'},
       { label: 'News', link: './stock-news'},
       { label: 'Play Stock', link: './play-stock'}
     ] 
   }
 
-  getSecInfo(){
-    this.transitionSearchElements()
-    this.stockinfoservice.getStockQuotes('aapl').subscribe(data => {
-       console.log(data);
-    })
-    this.stockinfoservice.getStockEarnings('aapl').subscribe(data => {
-      console.log(data);
-    })
-    this.stockinfoservice.getStockFinancials('aapl').subscribe(data => {
-      console.log(data);
-    })
-    this.stockinfoservice.getStockFinancialsAnnual('aapl').subscribe(data => {
-      console.log(data);
-    })
-    this.stockinfoservice.getStockOHLC('aapl').subscribe(data => {
-      console.log(data);
-    })
-    this.stockinfoservice.getStockKeyStats('aapl').subscribe(data => {
-      console.log(data);
-    })
-    this.stockinfoservice.getStockCompanyInfo('aapl').subscribe(data => {
-      console.log(data);
-    })
-    this.stockinfoservice.getStockprice('aapl').subscribe(data => {
-      console.log(data);
-    })
+  searchResults(){
+    this.transitionSearchElements();
   }
 
   transitionSearchElements(){
     this.searchDiv.nativeElement.className = 'transitioned-search-div' 
     this.titleHeader.nativeElement.className = 'transitioned-title-header'
+    this.searchFormField._elementRef.nativeElement.className = this.searchFormField._elementRef.nativeElement.className.replace('search-full-width', 'transitioned-search-form-field')
     this.router.navigate(['/search/stock-info']);
     this.navTabDisp = true;
   }

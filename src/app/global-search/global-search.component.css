@@ -5,26 +5,28 @@
 
 .transitioned-search-div{
     display: flex;
+    margin: 2% 0%;
 }
 
 .transitioned-title-header{
     font-size: 30px;
     font-family: cursive;
     font-stretch: expanded;
-    width: 30%;
-    margin-bottom: 0%;
-    padding-left: 5%;
-    padding-right: 3%;
+    padding-right: 2%; 
+    padding-left: 2%;
 }
 .main-header{
     font-family: cursive;
     font-size: 48px;
     font-stretch: expanded;
-    padding-left: 5%;
+    padding-left: 10%;
     margin-bottom: 5%;
     width: 40%;
 }
-.example-full-width {
+.transitioned-search-form-field{
+    width:60%
+}
+.search-full-width {
     width: 40%;
   }
 
@@ -33,6 +35,6 @@
 }
 
 .stock-tabs {
-    margin: 5% 10%;
-    width: 80%;
+    margin: 0% 14.5%;
+    width: 60%;
 }
